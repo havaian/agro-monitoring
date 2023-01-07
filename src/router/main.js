@@ -1,22 +1,42 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import MaainComponent from '../components/main_component.vue';
-import ProfileComponent from '../components/profile_component.vue';
+import LoginComponent from '../components/login_component.vue';
+import DashbordComponent from '../components/dashboard_component.vue';
+import StatComponent from '../components/stat_component.vue';
+import ReportComponent from '../components/report_component.vue';
+import PlanComponent from '../components/plan_component.vue';
+import UserComponent from '../components/user_component.vue';
 
 const routes = [
     {
-        path: '/',
-        name: 'Maain',
-        component: MaainComponent,
+        path: '/login',
+        name: 'Login',
+        component: LoginComponent
     },
     {
-        path: '/main',
-        redirect: '/',
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: DashbordComponent
     },
     {
-        path: '/profile',
-        name: 'Profile',
-        component: ProfileComponent
+        path: '/stats',
+        name: 'Statistics',
+        component: StatComponent
     },
+    {
+        path: '/reports',
+        name: 'Reports',
+        component: ReportComponent
+    },
+    {
+        path: '/plans',
+        name: 'Add plans',
+        component: PlanComponent
+    },
+    {
+        path: '/users',
+        name: 'Users',
+        component: UserComponent
+    }
 ];
 
 const router = createRouter({ 
@@ -24,7 +44,7 @@ const router = createRouter({
     mode: 'history',
     routes: routes,
     linkActiveClass: "active",
-    linkExactActiveClass: "exact-active",
+    linkExactActiveClass: "",
  });
 
 export default router;
