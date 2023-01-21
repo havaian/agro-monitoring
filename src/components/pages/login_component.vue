@@ -1,15 +1,56 @@
 <template>
   <div id="wrapper">
-    <h1>Statistika</h1>
+    <div class="left-container">
+      <img class="logo" src="/assets/icons/agro-logo.png" alt="">
+      <div class="login-form">
+        <p class="top-text">Кириш</p>
+        <div class="input-container">
+          <label for="hp-ic-l">Логин / Имейл</label>
+          <input type="text" name="hp-ic-l" id="hp-ic-l" placeholder="Логинни киритинг">
+          <input type="text" name="username" id="username" placeholder="Логинни киритинг">
+        </div>
+        <div class="input-container">
+          <label for="hp-ic-pw">Пароль</label>
+          <input type="password" name="hp-ic-pw" id="hp-ic-pw" placeholder="Паролни киритинг">
+          <input type="password" name="password" id="password" placeholder="Паролни киритинг">
+        </div>
+        <button id="submit-btn">Кириш</button>
+      </div>
+      <p class="bottom-text">
+        Ушбу хизматдан фойдаланиш орқали сиз
+        <br>махфийлик шартларига розилик билдирасиз
+      </p>
+    </div>
+    <div class="right-container">
+      <div class="text-container">
+        <p class="welcome-text-top">Хуш келибсиз!</p>
+        <p class="welcome-text-bot">"Онлайн мониторинг" ахборот тизими</p>
+      </div>
+      <img class="bg-img" src="/assets/photos/login-illustration.png" alt="">
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+
   export default {
-    name: "Profile",
+    name: "login_page_component",
+    props: [],
     mounted() {
-      
+      $('#submit-btn').click(() => {
+        let data = {
+          'login': $('input[name="hp-ic-l"]').val(),
+          'password': $('input[name="hp-ic-pw"]').val()
+        };
+
+        console.log(data);
+
+        axios.post('http://192.168.44.45:3365/industrial/login', data)
+        .then((res) => {
+          console.log(res);
+        })
+      });
     },
   }
 </script>
@@ -80,10 +121,12 @@ import axios from 'axios';
   #username {
     opacity: 0;
     position: absolute;
+    pointer-events: none;
   }
   #password {
     opacity: 0;
     position: absolute;
+    pointer-events: none;
   }
   #submit-btn {
     margin-top: 5%;

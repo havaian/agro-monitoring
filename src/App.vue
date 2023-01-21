@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import NavbarComponent from "./components/navbar_component.vue";
+  import NavbarComponent from "./components/navbar/main_component.vue";
 
   export default {
     data() {
@@ -41,8 +41,8 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    display: inline-grid;
-    grid-template-columns: 15% 85%;
+    display: flex;
+    background-color: #f5f5f5;
   }
 
   .site-content {

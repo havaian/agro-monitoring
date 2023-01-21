@@ -1,40 +1,14 @@
 <template>
   <div id="wrapper">
-    <div class="left-container">
-      <img class="logo" src="/assets/icons/agro-logo.png" alt="">
-      <div class="login-form">
-        <p class="top-text">Кириш</p>
-        <div class="input-container">
-          <label for="hp-ic-l">Логин / Имейл</label>
-          <input type="text" name="hp-ic-l" id="hp-ic-l" placeholder="Логинни киритинг">
-          <input type="text" name="username" id="username" placeholder="Логинни киритинг">
-        </div>
-        <div class="input-container">
-          <label for="hp-ic-pw">Пароль</label>
-          <input type="password" name="hp-ic-pw" id="hp-ic-pw" placeholder="Паролни киритинг">
-          <input type="password" name="password" id="password" placeholder="Паролни киритинг">
-        </div>
-        <button id="submit-btn">Кириш</button>
-      </div>
-      <p class="bottom-text">
-        Ушбу хизматдан фойдаланиш орқали сиз
-        <br>махфийлик шартларига розилик билдирасиз
-      </p>
-    </div>
-    <div class="right-container">
-      <div class="text-container">
-        <p class="welcome-text-top">Хуш келибсиз!</p>
-        <p class="welcome-text-bot">"Онлайн мониторинг" ахборот тизими</p>
-      </div>
-      <img class="bg-img" src="/assets/photos/login-illustration.png" alt="">
-    </div>
+    <h1>Dashbord</h1>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
   export default {
-    name: "Profile",
+    name: "dashboard_page_component",
+    props: [],
     mounted() {
       
     },
