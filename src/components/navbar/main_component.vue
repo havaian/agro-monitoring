@@ -53,9 +53,12 @@ export default {
   props: [],
   mounted() {
     $('.router-link').click(e => {
-      console.log('click');
-      $('.router-link').removeClass('active');
-      $(e.target).toggleClass('active');
+      if (e.target != $('.router-link.active')[0]) {
+        $('.router-link').removeClass('active');
+        $(e.target).toggleClass('active');  
+      } else {
+        $(e.target).toggleClass('active');  
+      }
       const children = $(`.dropdown-router-link`);
       for (let x = 0; x < children.length; x++) {
         $(children[x]).hide();
@@ -400,9 +403,24 @@ export default {
     .menu-wrapper {
       margin-top: 5%;
       display: grid;
-      height: 30%;
+      height: 100%;
       width: 100%;
       position: relative;
+      overflow-y: scroll;
+      /* direction: rtl; */
+    }
+    .menu-wrapper.menu-wrapper::-webkit-scrollbar {
+      left: 5%;
+      width: 0.2em;
+    }
+    
+    .menu-wrapper::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    .menu-wrapper::-webkit-scrollbar-thumb {
+      background-color: rgb(255, 255, 255);
+      outline: 1px solid slategrey;
     }
     .router-link,
     .dropdown-router-link {
@@ -421,6 +439,7 @@ export default {
       font-style: normal;
       font-weight: 500;
       font-size: 0.9vw;
+      /* direction: ltr; */
     }
     a.router-link {
       display: inline-flex;
@@ -455,23 +474,22 @@ export default {
     .dropdown-router-link {
       display: none;
     }
-    /* div.router-link:hover .link,
+    div.router-link:hover .link,
     div.router-link.active .link {
       color: #08705F;
       background-color: rgb(255, 255, 255);
       transition: all 0.2s ease;
     }
-    .dropdown-router-link:hover,
-    .dropdown-router-link.active {
-      text-decoration: underline;
+    .dropdown-router-link {
       transition: all 0.2s ease;
-    } */
-    div.router-link:hover .link,
-    div.router-link.active .link,
-    .dropdown-router-link:hover,
-    .dropdown-router-link.active {
-      color: #08705F;
-      background-color: rgb(255, 255, 255);
+    }
+    .dropdown-router-link p {
+      border-left: thin solid transparent;
+      transition: all 0.2s ease;
+    }
+    .dropdown-router-link:hover p,
+    .dropdown-router-link.active p {
+      border-left: thin solid white;
       transition: all 0.2s ease;
     }
     div.router-link.active .dropdown-router-link {
@@ -497,7 +515,6 @@ export default {
     }
     .router-link:hover i {      
       color: #08705F;
-      transform: rotateZ(90deg);
       transition: all 0.2s ease;
     }
     a.router-link:hover,
@@ -549,6 +566,7 @@ export default {
       position: relative;
       align-items: flex-end;
       justify-content: center;
+      overflow: hidden;
     }
     .contact {
       gap: 5%;
