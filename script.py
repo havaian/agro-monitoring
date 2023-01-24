@@ -35,40 +35,50 @@ def pizdec(line):
         write_static_html(new_page_path)
     return obj_name
 
-with open(components_path, 'r', encoding='utf8') as f:
-    for line in f.readlines():
-        if nl_child and line.strip() in ['}', '}\n']:
-            nl_child = False
-            continue
-        if general and len(line.split(":")) == 2 and line.split(":")[0].strip() == 'children':
-            nl_child = True
-            continue
-        if nl_child:
-            if len(line.split(":")) == 2 and line.split(":")[1].strip() in ['{','{\n']:
-                route_name = line.split(":")[0].strip()
-                write_route(route_name, last_obj_name)
-                pizdec(line)
+def write_routes_and_html():
+    with open(components_path, 'r', encoding='utf8') as f:
+        for line in f.readlines():
+            if nl_child and line.strip() in ['}', '}\n']:
+                nl_child = False
                 continue
-        if nl_obj:
-            obj_name = pizdec(line)
-            nl_obj = False
-            last_obj_name = obj_name
-            continue
-        if line.strip() in ["menuItems: {", "menuItems: {\n"]:
-            general = True
-            nl_obj = True
-            print("found")
-            continue
-        if line.strip() in ['},\n', '},']:
-            continue
-        # print(line.split(": "))
-        if general and len(line.split(":")) == 2 and line.split(":")[1].strip() in ['{', '{\n']:
-            print("*"*10)
-            obj_name = pizdec(line)
-            nl_obj = False
-            last_obj_name = obj_name
-            continue
-        if line.strip() in ["};\n", "};"]:
-            break
-        
-    
+            if general and len(line.split(":")) == 2 and line.split(":")[0].strip() == 'children':
+                nl_child = True
+                continue
+            if nl_child:
+                if len(line.split(":")) == 2 and line.split(":")[1].strip() in ['{','{\n']:
+                    route_name = line.split(":")[0].strip()
+                    write_route(route_name, last_obj_name)
+                    pizdec(line)
+                    continue
+            if nl_obj:
+                obj_name = pizdec(line)
+                nl_obj = False
+                last_obj_name = obj_name
+                continue
+            if line.strip() in ["menuItems: {", "menuItems: {\n"]:
+                general = True
+                nl_obj = True
+                print("found")
+                continue
+            if line.strip() in ['},\n', '},']:
+                continue
+            # print(line.split(": "))
+            if general and len(line.split(":")) == 2 and line.split(":")[1].strip() in ['{', '{\n']:
+                print("*"*10)
+                obj_name = pizdec(line)
+                nl_obj = False
+                last_obj_name = obj_name
+                continue
+            if line.strip() in ["};\n", "};"]:
+                break
+            
+def replace_static_to_widget(example):
+    page_listdir = os.listdir(page_path)
+    page_listdir.pop(page_listdir.index(example))
+    with open(os.path.join(page_path, example)) as f:
+        widget_text = f.read()
+    for page in page_listdir:
+        with open(os.path.join(page_path, page), 'w', encoding='utf-8') as page_f:
+            page_f.write(widget_text)
+
+replace_static_to_widget()
