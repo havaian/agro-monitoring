@@ -2,7 +2,7 @@
   <div id="wrapper">
     <div class="header">
       <div class="header-text">
-        <p>Foydalanuvchilar roвЂ™yxati</p>
+        <p>Foydalanuvchilar ro'yhati</p>
       </div>
       <div class="header-profile">
         <div class="notifications">
