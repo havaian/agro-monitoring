@@ -47,6 +47,7 @@ with open(components_path, 'r', encoding='utf8') as f:
             if len(line.split(":")) == 2 and line.split(":")[1].strip() in ['{','{\n']:
                 route_name = line.split(":")[0].strip()
                 write_route(route_name, last_obj_name)
+                pizdec(line)
                 continue
         if nl_obj:
             obj_name = pizdec(line)
