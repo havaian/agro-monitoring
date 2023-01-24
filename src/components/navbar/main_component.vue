@@ -109,7 +109,7 @@ export default {
             farmer_regions: {
                 show_icon: 'hide',
                 key: 'farmer_regions',
-                to: '/farmer_regions',
+                to: '/farmer-regions',
                 type: 'dropdown',
                 base_src: '',
                 hover_src: '',
