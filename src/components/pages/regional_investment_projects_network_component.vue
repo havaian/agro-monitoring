@@ -1,29 +1,6 @@
 <template>
   <div id="wrapper">
-    <div class="header">
-      <div class="header-text">
-        <p>Foydalanuvchilar roвЂ™yxati</p>
-      </div>
-      <div class="header-profile">
-        <div class="notifications">
-          <img src="/assets/icons/notification-idle.png" alt="">
-        </div>
-        <div class="profile">
-          <div class="profile-photo">
-            <img src="/assets/photos/profile-photo-sample.png" alt="">
-          </div>
-          <div class="profile-text">
-            <div class="profile-text-top">
-              <p>Abdurakhimov A.</p>
-              <img src="/assets/icons/arrow.png" alt="">
-            </div>
-            <div class="profile-text-bot">
-              <p>Tosh.v. Zangiota.t.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <profile-component header="Foydanaluvchilar ro'yhati" username="Abdurakhimov A." district="Tosh.v. Zangiota.t."/>
     <div class="main-content">
       <div class="internal-navigation">
         <ul>
@@ -54,6 +31,7 @@
 
 <script>
 import axios from 'axios';
+import profileComponent from "../profile/profile_component.vue";
   export default {
     name: "stats_page_component",
     props: [],
@@ -63,6 +41,9 @@ import axios from 'axios';
         $(e.target).toggleClass('active');
       })
     },
+    components: {
+      profileComponent,
+    }
   }
 </script>
 
