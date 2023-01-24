@@ -1,6 +1,6 @@
 <template>
   <div id="content-wrapper">
-      <navbar-component v-if="homePage()"></navbar-component>
+      <navbar-component v-if="routeCheck()"/>
       <div class="site-content">
         <router-view></router-view>
       </div>
@@ -13,11 +13,11 @@
   export default {
     data() {
         return {
-            title: 'Crop Monitoring'
+          title: 'Crop Monitoring'
         }
     },
     methods: {
-      homePage() {
+      routeCheck() {
         if(this.$route.path != "/login" ) {
           return true
         } else {
