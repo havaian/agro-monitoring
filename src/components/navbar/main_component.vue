@@ -109,7 +109,7 @@ export default {
             farmer_regions: {
                 show_icon: 'hide',
                 key: 'farmer_regions',
-                to: '/farmer-regions',
+                to: '/farmer_regions',
                 type: 'dropdown',
                 base_src: '',
                 hover_src: '',
@@ -392,7 +392,7 @@ export default {
       height: 100%;
       display: grid;
       position: relative;
-      grid-template-rows: 10% 80% 10%;
+      grid-template-rows: 10% 76.5% 13.5%;
       background-color: #08705F;
     }
     .menu > img {
@@ -439,6 +439,7 @@ export default {
       font-style: normal;
       font-weight: 500;
       font-size: 0.9vw;
+      user-select: none;
       /* direction: ltr; */
     }
     a.router-link {
