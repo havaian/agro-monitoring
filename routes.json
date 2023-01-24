@@ -2,134 +2,96 @@
   {
     "path": "/total_area",
     "name": "Total_area",
-    "component": "Total_areaComponent"
+    "component": "Enforcement_process_infoComponent"
   },
   {
     "path": "/farmer_regions",
     "name": "Farmer_regions",
-    "component": "Farmer_regionsComponent"
-  },
-  {
-    "path": "/statistical_data",
-    "name": "Statistical_data",
-    "component": "Statistical_dataComponent"
+    "component": "Enforcement_process_infoComponent"
   },
   {
     "path": "/aim_indicator_predictions",
     "name": "Aim_indicator_predictions",
-    "component": "Aim_indicator_predictionsComponent"
-  },
-  {
-    "path": "/main_product",
-    "name": "Main_product",
-    "component": "Main_productComponent"
+    "component": "Statistical_dataComponent"
   },
   {
     "path": "/main_farmer_products",
     "name": "Main_farmer_products",
-    "component": "Main_farmer_productsComponent"
+    "component": "Main_productComponent"
   },
-  { "path": "/grain", "name": "Grain", "component": "GrainComponent" },
   {
     "path": "/plant_water_areas",
     "name": "Plant_water_areas",
-    "component": "Plant_water_areasComponent"
+    "component": "GrainComponent"
   },
   {
     "path": "/nitrogen_fertilizers",
     "name": "Nitrogen_fertilizers",
-    "component": "Nitrogen_fertilizersComponent"
+    "component": "GrainComponent"
   },
-  { "path": "/e_action", "name": "E_action", "component": "E_actionComponent" },
   {
     "path": "/farmer_areas_2022_2023",
     "name": "Farmer_areas_2022_2023",
-    "component": "Farmer_areas_2022_2023Component"
+    "component": "E_actionComponent"
   },
   {
     "path": "/planting_stats_2022",
     "name": "Planting_stats_2022",
-    "component": "Planting_stats_2022Component"
+    "component": "E_actionComponent"
   },
   {
     "path": "/farmer_area_stats_2023",
     "name": "Farmer_area_stats_2023",
-    "component": "Farmer_area_stats_2023Component"
-  },
-  {
-    "path": "/financial_tables",
-    "name": "Financial_tables",
-    "component": "Financial_tablesComponent"
+    "component": "E_actionComponent"
   },
   {
     "path": "/cotton_money_return",
     "name": "Cotton_money_return",
-    "component": "Cotton_money_returnComponent"
+    "component": "Financial_tablesComponent"
   },
   {
     "path": "/cotton_industry_stats_2022",
     "name": "Cotton_industry_stats_2022",
-    "component": "Cotton_industry_stats_2022Component"
+    "component": "Financial_tablesComponent"
   },
   {
     "path": "/cotton_output_finance",
     "name": "Cotton_output_finance",
-    "component": "Cotton_output_financeComponent"
+    "component": "Financial_tablesComponent"
   },
   {
     "path": "/budget_money_on_corn",
     "name": "Budget_money_on_corn",
-    "component": "Budget_money_on_cornComponent"
+    "component": "Financial_tablesComponent"
   },
   {
     "path": "/outdated_debt",
     "name": "Outdated_debt",
-    "component": "Outdated_debtComponent"
+    "component": "Financial_tablesComponent"
   },
   {
     "path": "/cluster_corn_farmer_debt",
     "name": "Cluster_corn_farmer_debt",
-    "component": "Cluster_corn_farmer_debtComponent"
+    "component": "Financial_tablesComponent"
   },
   {
     "path": "/subsidy_finance_use",
     "name": "Subsidy_finance_use",
-    "component": "Subsidy_finance_useComponent"
-  },
-  {
-    "path": "/statistical_data",
-    "name": "Statistical_data",
-    "component": "Statistical_dataComponent"
+    "component": "Financial_tablesComponent"
   },
   {
     "path": "/fruit_vegs_export_execution",
     "name": "Fruit_vegs_export_execution",
-    "component": "Fruit_vegs_export_executionComponent"
-  },
-  {
-    "path": "/investment",
-    "name": "Investment",
-    "component": "InvestmentComponent"
+    "component": "Statistical_dataComponent"
   },
   {
     "path": "/regional_investment_projects_network",
     "name": "Regional_investment_projects_network",
-    "component": "Regional_investment_projects_networkComponent"
+    "component": "InvestmentComponent"
   },
   {
     "path": "/farmer_regional_investment_projects_regionated",
     "name": "Farmer_regional_investment_projects_regionated",
-    "component": "Farmer_regional_investment_projects_regionatedComponent"
-  },
-  {
-    "path": "/farmer_lands",
-    "name": "Farmer_lands",
-    "component": "Farmer_landsComponent"
-  },
-  { "path": "/methods", "name": "Methods", "component": "MethodsComponent" },
-  {
-    "path": "/components",
-    "name": "Components",
-    "component": "ComponentsComponent"
+    "component": "InvestmentComponent"
   }
 ]
