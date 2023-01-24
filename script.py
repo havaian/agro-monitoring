@@ -81,4 +81,4 @@ def replace_static_to_widget(example):
         with open(os.path.join(page_path, page), 'w', encoding='utf-8') as page_f:
             page_f.write(widget_text)
 
-replace_static_to_widget()
+replace_static_to_widget("stat_component.vue")
