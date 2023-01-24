@@ -53,7 +53,7 @@ const routes = [
       component: Total_areaComponent
     },
     {
-      path: "/farmer_regions",
+      path: "/farmer-regions",
       name: "Farmer_regions",
       component: Farmer_regionsComponent
     },
