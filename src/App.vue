@@ -8,30 +8,29 @@
 </template>
 
 <script>
-  import NavbarComponent from "./components/navbar/main_component.vue";
-
-  export default {
-    data() {
-        return {
-          title: 'Crop Monitoring'
-        }
-    },
-    methods: {
-      routeCheck() {
-        if(this.$route.path != "/login" ) {
-          return true
-        } else {
-          return false
-        }
+import NavbarComponent from "./components/partials/main_navbar_component.vue"
+export default {
+  data() {
+      return {
+        title: 'Crop Monitoring'
       }
-    },
-    mounted() {
+  },
+  methods: {
+    routeCheck() {
+      if( this.$route.path != "/login" && this.$route.path != "/excel-upload" ) {
+        return true
+      } else {
+        return false
+      }
+    }
+  },
+  mounted() {
 
-    },
-    components: {
-      NavbarComponent
-    }	
-  }
+  },
+  components: {
+    NavbarComponent
+  }	
+}
 
 </script>
 

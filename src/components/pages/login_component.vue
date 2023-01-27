@@ -1,194 +1,184 @@
 <template>
   <div id="wrapper">
-    <profile-component header="Foydanaluvchilar ro'yhati" username="Abdurakhimov A." district="Tosh.v. Zangiota.t."/>
-    <div class="main-content">
-      <div class="internal-navigation">
-        <ul>
-          <li>Yer ma'lumoti</li>
-          <li>Yer tayyorlash</li>
-          <li>Ekin ekish</li>
-          <li>Agrotexnik tadbirlar</li>
-          <li>Texnika</li>
-          <li>Klaster</li>
-          <li>Investitsiya</li>
-        </ul>
+    <div class="left-container">
+      <img class="logo" src="/assets/icons/agro-logo.png" alt="">
+      <div class="login-form">
+        <p class="top-text">Кириш</p>
+        <div class="input-container">
+          <label for="hp-ic-l">Логин / Имейл</label>
+          <input type="text" name="hp-ic-l" id="hp-ic-l" placeholder="Логинни киритинг">
+          <input type="text" name="username" id="username" placeholder="Логинни киритинг">
+        </div>
+        <div class="input-container">
+          <label for="hp-ic-pw">Пароль</label>
+          <input type="password" name="hp-ic-pw" id="hp-ic-pw" placeholder="Паролни киритинг">
+          <input type="password" name="password" id="password" placeholder="Паролни киритинг">
+        </div>
+        <button id="submit-btn">Кириш</button>
       </div>
-      <div class="filter">
-
+      <p class="bottom-text">
+        Ушбу хизматдан фойдаланиш орқали сиз
+        <br>махфийлик шартларига розилик билдирасиз
+      </p>
+    </div>
+    <div class="right-container">
+      <div class="text-container">
+        <p class="welcome-text-top">Хуш келибсиз!</p>
+        <p class="welcome-text-bot">"Онлайн мониторинг" ахборот тизими</p>
       </div>
-      <div class="general-buttons">
-
-      </div>
-      <div class="table">
-
-      </div>
-      <div class="table-navigation">
-
-      </div>
+      <img class="bg-img" src="/assets/photos/login-illustration.png" alt="">
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-import profileComponent from "../profile/profile_component.vue";
   export default {
-    name: "stats_page_component",
+    name: "login_page_component",
     props: [],
     mounted() {
-      $('.internal-navigation ul li').click((e) => {
-        $('.internal-navigation ul li').removeClass('active');
-        $(e.target).toggleClass('active');
-      })
+      $('#submit-btn').click(() => {
+        let data = {
+          'login': $('input[name="hp-ic-l"]').val(),
+          'password': $('input[name="hp-ic-pw"]').val()
+        };
+        console.log(data);
+        axios.post('http://192.168.44.45:3365/industrial/login', data)
+        .then((res) => {
+          console.log(res);
+        })
+      });
     },
-    components: {
-      profileComponent,
-    }
   }
 </script>
 
 <style scoped>
-  #wrapper {
-    padding: 1.5% 1.5% 2.5% 1.5%;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: 10% 90%;
-  }
-  .header {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: inline-grid;
-    align-items: center;
-    justify-content: space-between;
-    grid-template-columns: 82% 18%;
-    padding: 0% 3% 0% 2%;
-    border-radius: 12px;
-    background: #FFFFFF;
-    box-shadow: 6px 0px 14px rgba(0, 0, 0, 0.08);
-  }
-  .header-text p {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.5vw;
-    line-height: 1vw;
-  }
-  .header-profile {
-    gap: 5%;
-    display: flex;
-    align-items: center;
-  }
-  .notifications img {
-    width: 1.5vw;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .notifications:hover img {
-    transform: scale(110%);
-    transition: all 0.2s ease;
-  }
-  .profile {
-    padding: 2% 7% 2% 2%;
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    border-radius: 12px;
-    border: thin solid transparent;
-    transition: all 0.2s ease;
-  }
-  .profile-photo {
-    transition: all 0.2s ease;
-  }
-  .profile:hover {
-    border: thin solid rgb(150, 150, 150);
-    transition: all 0.2s ease;
-  }
-  .profile:hover .profile-text-top img {
-    transform: rotate(-90deg);
-    transition: all 0.2s ease;
-  }
-  .profile-text {
-    width: 100%;
-    margin-left: 4%;
-  }
-  .profile-text-top {
-    width: 100%;
-    align-items: center;
-    display: inline-flex;
-  }
-  .profile-text-top p {
-    font-size: 0.9vw;
-    font-weight: 500;
-    line-height: 1vw;
-    font-style: normal;
-    font-family: 'Inter';
-    padding-right: 3%;
-    white-space: nowrap;
-  }
-  .profile-text-top img {
-    height: 100%;
-    transition: all 0.2s ease;
-  }
-  .profile-text-bot p {
-    font-size: 0.9vw;
-    font-weight: 500;
-    line-height: 1vw;
-    font-style: normal;
-    font-family: 'Inter';
-    color: #9B9B9B;
-    white-space: nowrap;
-  }
-  .main-content {
-    width: 100%;
-    height: 100%;
-    margin-top: 1%;
-  }
-  .internal-navigation {
-    width: 100%;
-    height: 100%;
-    background: #FFFFFF;
-    box-shadow: 6px 0px 14px rgba(0, 0, 0, 0.08);
-    border-radius: 12px;
-    padding: 2% 1.5% 0% 1.5%;
-    display: grid;
-    grid-template-rows: 5% 10% 5% 70% 10%;
-  }
-  .internal-navigation ul {
-    gap: 1%;
-    width: 100%;
-    height: 100%;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.1rem;
-    display: inline-flex;
-    justify-content: flex-start;
-    text-decoration: none;
-    list-style: none;
-    border-bottom: thin solid #DFDFE0;
-  }
-  .internal-navigation ul li {
-    cursor: pointer;
-    padding: 0 1%;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1vw;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s ease;
-  }
-
-  .internal-navigation ul li:hover {
-    color: #08705F;
-    border-bottom: 2px solid #08705F;
-    transition: all 0.2s ease;
-  }
-
-  .internal-navigation ul li.active {
-    color: #08705F;
-    border-bottom: 2px solid #08705F;
-    transition: all 0.2s ease;
-  }
+#wrapper {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-grid;
+  grid-template-columns: 50% 50%;
+}
+.left-container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #313131;
+  background-color: white;
+}
+.left-container .logo {
+  justify-self: center;
+}
+.top-text {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  font-style: normal;
+  font-family: 'Inter';
+}
+.login-form {
+  width: 487px;
+  height: 436px;
+  display: grid;
+  padding: 0% 10% 10% 10%;
+  box-shadow: 2px 0px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  grid-template-rows: 20% 30% 30% 20%;
+}
+.input-container {
+  display: grid;
+  padding: 0% 0% 2% 0%;
+  grid-template-rows: 30% 50%;
+}
+.input-container label {
+  height: 20px;
+}
+#hp-ic-l,
+#hp-ic-pw {
+  padding: 0 20px;
+  color: #A8A8A8;
+  border-radius: 5px;
+  border: thin solid #A8A8A8;
+  box-shadow: 2px 0px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2 ease;
+}
+#hp-ic-l:focus,
+#hp-ic-pw:focus,
+#hp-ic-l:focus-within,
+#hp-ic-pw:focus-within,
+#hp-ic-l:focus-visible,
+#hp-ic-pw:focus-visible {
+  outline: #08705F;
+  border: thin solid #08705F;
+  transition: all 0.2 ease;
+}
+#username {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+#password {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+#submit-btn {
+  margin-top: 5%;
+  padding: 5%;
+  cursor: pointer;
+  color: white;
+  border-radius: 4px;
+  border: thin solid #08705F;
+  background-color: #08705F;
+  transition: all 0.2s ease;
+}
+#submit-btn:hover{
+  color: #08705F;
+  border: thin solid #08705F;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+.bottom-text {
+  color: #A8A8A8;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  font-style: normal;
+  text-align: center;
+  font-family: 'Inter';
+}
+.right-container {
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 112, 95, 0.8);
+  backdrop-filter: blur(50px);
+}
+.right-container img {
+  left: 10%;
+  bottom: 0;
+  height: 80%;
+  position: fixed;
+}
+.right-container .text-container {
+  color: white;
+  margin-top: 10%;
+  margin-left: 7%;
+}
+.right-container .text-container .welcome-text-top {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  font-style: normal;
+  font-family: 'Inter';
+}
+.right-container .text-container .welcome-text-bot {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 34px;
+  font-style: normal;
+  font-family: 'Inter';
+}
 </style>

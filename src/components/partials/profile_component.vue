@@ -31,10 +31,7 @@ export default {
     name: "profile_component",
     props: [ 'header', 'username', 'district' ],
     mounted() {
-        $('.internal-navigation ul li').click((e) => {
-            $('.internal-navigation ul li').removeClass('active');
-            $(e.target).toggleClass('active');
-        })
+        
     },
 }
 </script>

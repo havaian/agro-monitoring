@@ -1,24 +1,22 @@
 <template>
-  <main-component :table_id="16" />
+  <main-component :table_id="22" />
 </template>
 
 <script>
 import axios from 'axios';
-import profileComponent from "../partials/profile_component.vue";
+import mainComponent from "../partials/pages_main_component.vue";
   export default {
-    name: "stats_page_component",
+    name: "farmer_regional_investment_component",
     props: [],
     mounted() {
       
     },
     components: {
-      profileComponent,
+      mainComponent,
     }
   }
 </script>
 
 <style scoped>
 
-
-  
 </style>
