@@ -1,10 +1,10 @@
 <template>
-  <main-component :table_id="7" />
+  <main-component :table_id="7" :hidden_rows="[0, 1, 3]" :headers="[0, 1, 2, 3, 4, 5]" />
 </template>
 
 <script>
 import axios from 'axios';
-import profileComponent from "../partials/profile_component.vue";
+import mainComponent from "../partials/pages_main_component.vue";
   export default {
     name: "stats_page_component",
     props: [],
@@ -12,7 +12,7 @@ import profileComponent from "../partials/profile_component.vue";
       
     },
     components: {
-      profileComponent,
+      mainComponent,
     }
   }
 </script>

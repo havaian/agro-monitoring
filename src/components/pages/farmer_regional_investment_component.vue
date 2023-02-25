@@ -1,5 +1,5 @@
 <template>
-  <main-component :table_id="22" />
+  <main-component :table_id="22" :hidden_rows="[0, 1]" :headers="[0, 1]" />
 </template>
 
 <script>

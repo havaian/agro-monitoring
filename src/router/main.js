@@ -5,7 +5,6 @@ import Cotton_money_return_component from '../components/pages/cotton_money_retu
 import Fruit_vegs_export_execution_component from '../components/pages/fruit_vegs_export_execution_component.vue';
 import Total_area_component from '../components/pages/total_area_component.vue';
 import Farmer_regions_component from '../components/pages/farmer_regions_component.vue';
-import Aim_indicator_predictions_component from '../components/pages/aim_indicator_predictions_component.vue';
 import Main_farmer_products_component from '../components/pages/main_farmer_products_component.vue';
 import Plant_water_areas_component from '../components/pages/plant_water_areas_component.vue';
 import Nitrogen_fertilizers_component from '../components/pages/nitrogen_fertilizers_component.vue';
@@ -20,7 +19,7 @@ import Subsidy_finance_use_component from '../components/pages/subsidy_finance_u
 import Regional_investment_projects_network_component from '../components/pages/regional_investment_projects_network_component.vue';
 import Farmer_regional_investment_component from '../components/pages/farmer_regional_investment_component.vue';
 import Outdated_debt_component from '../components/pages/outdated_debt_component.vue';
-import Excel_Upload_component from '../components/partials/excel_upload_component.vue';
+// import Excel_Upload_component from '../components/partials/excel_upload_component.vue';
 
 const routes = [
     {
@@ -44,11 +43,6 @@ const routes = [
         component: Farmer_regions_component
     },
     {
-        path: "/aim-indicator-predictions",
-        name: "Aim_indicator_predictions",
-        component: Aim_indicator_predictions_component
-    },
-    {
         path: "/plant-water-areas",
         name: "Plant_water_areas",
         component: Plant_water_areas_component
@@ -62,6 +56,11 @@ const routes = [
         path: "/farmer-areas-2022-2023",
         name: "Farmer_areas_2022_2023",
         component: Farmer_areas_2022_2023_component
+    },
+    {
+        path: "/main-farmer-products",
+        name: "main_farmer_products",
+        component: Main_farmer_products_component
     },
     {
         path: "/planting-stats-2022",
@@ -123,11 +122,11 @@ const routes = [
         name: "Farmer_regional_investment_projects_regionated",
         component: Farmer_regional_investment_component
     },
-    {
-        path: "/excel-upload",
-        name: "excel_upload",
-        component: Excel_Upload_component
-    }
+    // {
+    //     path: "/excel-upload",
+    //     name: "excel_upload",
+    //     component: Excel_Upload_component
+    // }
 ];
 
 const router = createRouter({ 

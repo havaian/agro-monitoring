@@ -68,7 +68,7 @@ export default {
 
 .notifications img {
     width: 1.5vw;
-    cursor: pointer;
+    cursor: not-allowed;
     transition: all 0.2s ease;
 }
 
@@ -80,7 +80,7 @@ export default {
 .profile {
     padding: 2% 7% 2% 2%;
     display: flex;
-    cursor: pointer;
+    cursor: not-allowed;
     align-items: center;
     border-radius: 12px;
     border: thin solid transparent;

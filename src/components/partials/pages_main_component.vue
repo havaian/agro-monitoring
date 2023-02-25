@@ -4,11 +4,7 @@
         <div class="main-content">
             <internal-nav-component />
             <filter-component />
-            <div class="general-buttons">
-    
-            </div>
-            <table-component :table_id="table_id" />
-            <table-nav-component />
+            <table-component :table_id="table_id" :hidden_rows="hidden_rows" :headers="headers" />
         </div>
     </div>
 </template>
@@ -19,12 +15,15 @@ import profileComponent from "../partials/profile_component.vue";
 import tableComponent from "../partials/table_component.vue";
 import internalNavComponent from "../partials/internal_nav_component.vue";
 import filterComponent from "../partials/filter_component.vue";
-import tableNavComponent from "../partials/table_nav_component.vue";
 export default {
     name: "pages_main_component",
-    props: [ 'table_id' ],
+    props: [ 'table_id', 'hidden_rows', 'headers' ],
     data: (props) => {
-        const table_id = props.table_id;
+        return {
+            table_id: props.table_id,
+            hidden_rows: props.hidden_rows,
+            headers: props.headers,
+        }
     },
     mounted() {
         
@@ -34,14 +33,13 @@ export default {
         tableComponent,
         internalNavComponent,
         filterComponent,
-        tableNavComponent,
     }
 }
 </script>
 
 <style scoped>
 #wrapper {
-    padding: 1.5% 1.5% 2.5% 1.5%;
+    padding: 1.5% 1.5% 1.5% 1.5%;
     width: 100%;
     height: 100%;
     display: grid;
@@ -52,6 +50,6 @@ export default {
     height: 100%;
     margin-top: 1%;
     display: grid;
-    grid-template-rows: 10% 10% 5% 70% 10%;
+    grid-template-rows: 10% 10% 80%;
 }
 </style>

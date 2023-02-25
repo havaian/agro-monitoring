@@ -1,26 +1,22 @@
 {
-  "name": "constructions-map",
+  "name": "agro-monitoring",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev_host": "vite --host",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@handsontable/vue3": "^12.3.0",
     "axios": "^0.27.2",
-    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
-    "googleapis": "^108.0.0",
     "handsontable": "^12.3.0",
-    "mongodb": "^4.8.1",
-    "mongoose": "^6.5.1",
-    "read-excel-file": "^5.5.3",
+    "pinia": "^2.0.30",
     "vue": "^3.2.37",
-    "vue-router": "^4.1.2",
-    "vuex": "^4.0.2"
+    "vue-router": "^4.1.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.0",

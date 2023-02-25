@@ -49,7 +49,7 @@ export default {
     border-bottom: thin solid #DFDFE0;
 }
 .internal-navigation ul li {
-    cursor: pointer;
+    cursor: not-allowed;
     padding: 0 1%;
     font-family: 'Inter';
     font-style: normal;

@@ -1,6 +1,6 @@
 <template>
   <div id="content-wrapper">
-      <navbar-component v-if="routeCheck()"/>
+      <navbar-component v-if="routeCheck()" />
       <div class="site-content">
         <router-view></router-view>
       </div>
@@ -8,13 +8,9 @@
 </template>
 
 <script>
-import NavbarComponent from "./components/partials/main_navbar_component.vue"
+import NavbarComponent from "./components/partials/main_navbar_component.vue";
+
 export default {
-  data() {
-      return {
-        title: 'Crop Monitoring'
-      }
-  },
   methods: {
     routeCheck() {
       if( this.$route.path != "/login" && this.$route.path != "/excel-upload" ) {
@@ -28,7 +24,7 @@ export default {
 
   },
   components: {
-    NavbarComponent
+    NavbarComponent,
   }	
 }
 

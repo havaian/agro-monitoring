@@ -5,40 +5,29 @@
             <button id="submit">send</button>
             <button id="update">update</button>
         </div>
+        <div class="check">
+            <input type="number" id="check-input"/>
+            <button id="check-button">check</button>
+        </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import readXlsxFile from 'read-excel-file';
+import tableComponent from "../partials/table_component.vue";
 
 export default {
     name: 'excel_upload_component',
     mounted: () => {
-        const table_names = {
-            "2": "Ўзбекистон Республикаси қишлоқ хўжалиги ерлари тўғрисида МАЪЛУМОТ",
-            "3": "Ўзбекистон Республикасида 2022 йилда қишлоқ, ўрмон ва балиқ хўжалиги маҳсулотларини ишлаб чиқаришнинг мақсадли кўрсатгичлари ПРОГНОЗИ",
-            "6": "Қорақалпоғистон Республикаси ва вилоятларда 2023 йил ҳосили учун экилган кузги бошоқли дон экинларини суғориш, азотли минерал ўғитлар билан озиқлантириш ва ўсув даврилари тўғрисида МАЪЛУМОТ",
-            "8": "Республика вилоятларида \"E-auksion\" орқали деҳқон хўжалиги юритиш учун ер майдонлари ажратилиши тўғрисида",
-            "9": "Республика вилоятларида 2022 йилда \"E-auksion\" орқали деҳқон хўжалиги юритиш учун ажратилган ер майдонларига қишлоқ хўжалиги экинлари экилиши тўғрисида",
-            "10": "Республика вилоятларида 2023 йилда \"E-auksion\" орқали деҳқон хўжалиги юритиш учун ер майдонлари ажратилиши тўғрисида",
-            "11": "2021 йил Пахта ҳосили етиштириш харажатларини молиялаштириш учун пахта тўқимачилик кластерларига Жамғармадан ажратилган маблағлар тўғрисида маълумот",
-            "12": "2022 йил ҳосилидан кластерлар томонидан фермер хўжаликларидан харид қилинган пахта хомашёсининг якуний хисоб-китоблари тўғрисида тезкор МАЪЛУМОТ",
-            "14": "Қорақалпоғистон Республикаси ва вилоятларда 2022 йил ҳосилидан кластерлар томонидан қабул қилинган бошоқли доннинг якуний тўловларини амалга оширилиши ва фермер хўжаликларининг кластерлар олдидаги қарздорликлари тўғрисида МАЪЛУМОТ",
-            "15": "Қорақалпоғистон Республикаси ва вилоятларда 2022 йил ҳосилидан кластерлар томонидан қабул қилинган бошоқли доннинг якуний тўловларини амалга оширилиши ва фермер хўжаликларининг кластерлар олдидаги қарздорликлари тўғрисида МАЪЛУМОТ",
-            "16": "Жамғарма маблағлари ҳисобидан пахта ва ғалла ҳосилини молиялаштириш учун ажратилган маблағлар ҳисобидан муддати ўтган кредитлар тўғрисида МАЪЛУМОТ",
-            "17": "ҒАЛЛА-2023 йил ҳосили етиштириш харажатларини молиялаштириш учун Жамғармадан ажратилган маблағларнинг қишлоқ хўжалик корхоналар томонидан ишлатилиши тўғрисида маълумот",
-            "18": "Ўзбекистон Республикаси Президентининг ПҚ-225-сонли қарорига асосан Боғдорчилик ва иссиқхона хўжалигини ривожлантириш агентлиги томонидан ажратилган ссуда маблағларини сўндириш ГРАФИГИ",
-            "19": "Республика бўйича мева-сабзавот ва озиқ-овқат маҳсулотлари экспорт прогнозининг ижроси юзасидан тезкор МАЪЛУМОТ",
-            "20": "2022-2024 йилларда қишлоқ хўжалиги ва озиқ-овқат саноати соҳаларида амалга оширилиши режалаштирилган инвестиция лойиҳаларини вилоятлар кесимида МАЪЛУМОТ",
-        }
+        
+        const input = document.getElementById('input');
 
         const sendTable = (route) => {
-            const input = document.getElementById('input');
             readXlsxFile(input.files[0]).then((rows) => {
                 for (let x in rows) {
                     for (let y in rows[x]) {
-                        if (typeof rows[x][y] === 'number') {
+                        if (typeof rows[x][y] === 'number' && y > 0) {
                             rows[x][y] = rows[x][y].toFixed(1);
                         }
                     }
@@ -51,25 +40,25 @@ export default {
                 if (route === '/update-table') {
                     route = route + '/' + input.files[0].name.split(".xlsx")[0];
                 }
-                axios.post(route, data)
-                .then(res => {
-                    console.log(res);
-                });
+                generateTable('rows', rows);
+                // axios.post(route, data)
+                // .then(res => {
+                //     console.log(res);
+                // });
             });
         }
 
-        $('#submit').click(() => {
-            sendTable('/add-table');
-        });
-        $('#update').click(() => {
-            sendTable('/update-table');
-        });
-
-        axios.get('/get-table/table')
-        .then(async res => {
+        const generateTable = async (type, res) => {
             const container = document.querySelector('#table');
             const searchField = document.querySelector('#search_field');
-            const data = await res.data[0].rows;
+            let data = '';
+            if (type === 'rows') {
+                data = res;
+            } else {
+                data = await res.data[0].rows;
+            }
+
+            console.log(data);
 
             let x = 0;
             let headers = [];
@@ -108,10 +97,24 @@ export default {
                 manualRowResize: true,
                 licenseKey: 'non-commercial-and-evaluation'
             });
+        }
+
+        $('#submit').click(() => {
+            sendTable('/add-table');
+        });
+        $('#update').click(() => {
+            sendTable('/update-table');
+        });
+
+        $('#check-button').click(() => {
+            axios.get('/get-table/table')
+            .then(async res => {
+                generateTable(res);
+            });
         });
     },
     components: {
-
+        tableComponent
     },
     props: []
 }
